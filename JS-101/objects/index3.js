@@ -5,7 +5,8 @@
 // Returns the updated property
 
 function updateProperty(obj, propName, str) {
-    return propName = str;
+    obj[propName] = str;
+    return obj[propName];
 }
 console.log(updateProperty({ firstName: 'Alex' }, 'firstName', 'John'));
 
