@@ -1,0 +1,10 @@
+.breed-dropdown{
+    padding: 1rem;
+}
+.next-btn{
+    padding: 7px;
+    background-color: #c0c06b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
