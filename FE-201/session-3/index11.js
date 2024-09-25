@@ -16,6 +16,10 @@
 function reduceMethodExtractData(watchList) {
     // You only need to implement this function.
     let filteredMovies = watchList.filter((ele) => ele.Director === "Christopher Nolan");
+     // Return 0 if there are no Christopher Nolan movies
+     if (filteredMovies.length === 0) {
+        return 0;
+    }
     let sum = filteredMovies.reduce((acc, ele) => acc + parseFloat(ele.imdbRating), 0);
     let avgRating = sum/filteredMovies.length;
     return avgRating;
