@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import './App.css';
 import VideoCard from './session-1/VideoCard';
 import axios from "axios";
@@ -21,13 +22,15 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <Grid container spacing={2}>
       {
         videoData?.map((video)=>(
+          <Grid item xs={12} sm={6} md={4} lg={3} >
           <VideoCard key={video.id} data={video}/>
+          </Grid>
         ))
       }
-    </div>
+      </Grid>
   );
 }
 
