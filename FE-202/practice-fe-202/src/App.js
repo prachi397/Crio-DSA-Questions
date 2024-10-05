@@ -4,6 +4,7 @@ import VideoCard from './session-1/VideoCard';
 import axios from "axios";
 // import videoData from './data.json';
 import { useEffect, useState } from 'react';
+import PromiseAll from './session-1/PromiseAll';
 
 function App() {
   const [videoData, setVideoData] = useState([]);
@@ -22,6 +23,8 @@ function App() {
     }
   }
   return (
+    <>
+    <PromiseAll/>
     <Grid container spacing={2}>
       {
         videoData?.map((video)=>(
@@ -31,6 +34,7 @@ function App() {
         ))
       }
       </Grid>
+      </>
   );
 }
 
