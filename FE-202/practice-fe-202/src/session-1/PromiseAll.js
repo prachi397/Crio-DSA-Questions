@@ -14,6 +14,9 @@ const PromiseAll = () => {
             let commentUrl = "https://jsonplaceholder.typicode.com/comments";
             let albumUrl = "https://jsonplaceholder.typicode.com/albums";
 
+            // const delay = (ms, promise)=>{
+            //     new Promise((resolve, reject)=> setTimeout(()=>resolve(promise), ms));
+            // }
             const [postData, commentData, albumData] = await Promise.all(
                 [
                     axios.get(postUrl),
