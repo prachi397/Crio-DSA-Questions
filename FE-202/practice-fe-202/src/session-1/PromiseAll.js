@@ -17,7 +17,9 @@ const PromiseAll = () => {
             // const delay = (ms, promise)=>{
             //     new Promise((resolve, reject)=> setTimeout(()=>resolve(promise), ms));
             // }
-            const [postData, commentData, albumData] = await Promise.all(
+            
+            // Promise.allSettled --> method return an object
+            const [postData, commentData, albumData] = await Promise.allSettled(
                 [
                     axios.get(postUrl),
                     axios.get(commentUrl),
@@ -25,9 +27,9 @@ const PromiseAll = () => {
                 ]
             );
             setData({
-                posts: postData.data,
-                comments: commentData.data,
-                album: albumData.data
+                posts: postData.value.data,
+                comments: commentData.value.data,
+                album: albumData.value.data
             });
 
         } catch (err) {
