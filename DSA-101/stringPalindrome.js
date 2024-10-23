@@ -10,10 +10,22 @@
 
 function checkPalindrom(str){
     //first approach
-    let reverseStr = ''
-    for(let i=str.length-1;i>=0;i--){
-        reverseStr += str[i];
+    // let reverseStr = ''
+    // for(let i=str.length-1;i>=0;i--){
+    //     reverseStr += str[i];
+    // }
+    // return (reverseStr === str);
+
+    //second approach using two pointer
+    let start = 0;
+    let end = str.length-1;
+    while(start<end){
+        if(str[start] !== str[end]){
+            return false;
+        }
+        start++;
+        end--;
     }
-    return (reverseStr === str);
+    return true;
 }
 console.log(checkPalindrom('madam'))
