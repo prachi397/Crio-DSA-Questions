@@ -7,7 +7,6 @@
 // 2 3 4 5 1
 
 function leftRotate(arr){
-    let rotatedArray = [];
     let n = arr.length;
     let temp = arr[0];
     for(let i=0;i<n-1;i++){
