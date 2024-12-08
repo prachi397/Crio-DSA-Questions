@@ -38,6 +38,6 @@ function removeDuplicatesFromSortedArrayII(n, arr) {
     }
     currentIndex++;
   }
-  return arr;
+  return [startIndex,arr.slice(0,startIndex)];
 }
 console.log(removeDuplicatesFromSortedArrayII(7, [2, 2, 2, 3, 4, 4, 9]));
