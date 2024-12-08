@@ -39,4 +39,25 @@ function twoSumBetter(nums, target) {
   }
 }
 //here TC- O(nlogn) and SC - O(n)
-console.log(twoSumBetter([2, 3, 4, 5, 9, 8], 7));
+// console.log(twoSumBetter([2, 3, 4, 5, 9, 8], 7));
+
+//optimal apprach using map --> here both TC and SC are O(n)
+function twoSumOptimal(nums,target){
+    let mp = new Map();
+    //iterate over the array
+    for(let i=0;i<nums.length;i++){
+        // target = x + nums[i] and we have to find value of x, so we can 
+        //write x = target - nums[i]
+        let x = target - nums[i];
+        //check if the elemenet is present in map
+        if(mp.has(x)){
+            let j = mp.get(x);
+            return [j,i];
+        }
+        //if not presnt then add the element to the map
+        else{
+            mp.set(nums[i],i);
+        }
+    }
+}
+console.log(twoSumOptimal([2, 4, 5, 9, 8], 7));
