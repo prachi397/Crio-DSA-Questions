@@ -14,3 +14,9 @@ const greet = function(name) {
     return `Hello, ${name}!`;
   };
 console.log(greet("Prachi"));
+
+//First order function -> first order function is a function that does not take another function as an argumnet
+//                        and does not return a function as its return value
+
+const firstOrderFunc = () => console.log("First order function");
+firstOrderFunc();
