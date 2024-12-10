@@ -40,3 +40,19 @@ function person(name){
 }
 let obj4 = new person("Prachi Panwar");
 console.log(obj4);
+
+//5. Function constructor with protoype -> similar to function constructor but uses protype for thier 
+//                                         properties and methods.
+//create an empty function
+function human(){}
+human.prototype.name = "Annie";
+let obj5 = new human();
+console.log(obj5.name);
+
+//6. Object.assign() -> it is used to copy all the properties of one or more source objects to a 
+//                      target object.
+
+let orgObj = {company:'abc groups'};
+let carObj = {name: 'Toyato'};
+let obj6 = Object.assign({color:'black'},orgObj,carObj);
+console.log(obj6);
