@@ -52,3 +52,14 @@ function multiple(a){
 const multiplyOfTwo = multiple(2);
 const multiplyOfFive = multiplyOfTwo(5);
 console.log(multiplyOfFive);
+
+//7. Pure function -> Pure function is a function where the return value is only determined by the argumnets
+//                    passed to it without any side effects.If we run the same function with same arguments
+//                    n number of times and in n places in the application then it will always returns
+//                    the same value.
+
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3)); 
+console.log(add(2, 3));
