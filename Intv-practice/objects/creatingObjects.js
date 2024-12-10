@@ -56,3 +56,12 @@ let orgObj = {company:'abc groups'};
 let carObj = {name: 'Toyato'};
 let obj6 = Object.assign({color:'black'},orgObj,carObj);
 console.log(obj6);
+
+//7. using ES6 class ->
+class Persona{
+    constructor(name){
+        this.name = name;
+    }
+}
+let obj7 = new Persona("Prachi");
+console.log(obj7);
