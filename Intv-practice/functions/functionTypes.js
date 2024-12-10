@@ -30,3 +30,7 @@ function higherOrderFunc(greetings){
      return greetings;
 }
 console.log(higherOrderFunc(greetings()));
+
+//unary function -> function that accepts exactly one argument
+const unaryFunc = (a) => console.log(a+10);
+unaryFunc(5);
