@@ -20,3 +20,13 @@ console.log(greet("Prachi"));
 
 const firstOrderFunc = () => console.log("First order function");
 firstOrderFunc();
+
+//Higher order function -> higher order function is a function that accepts a function as an argumnet or 
+//                         return a function as its return value.
+function greetings(){
+    return "hello, good morning.";
+}
+function higherOrderFunc(greetings){
+     return greetings;
+}
+console.log(higherOrderFunc(greetings()));
