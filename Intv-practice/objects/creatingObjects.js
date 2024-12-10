@@ -30,3 +30,13 @@ var car = Object.create(vehical, carProps);
 console.log(Object.getPrototypeOf(car));
 console.log(car);
 console.log(car.wheels);
+
+//4. create object using function construcotr -> this approach, creates any function and apply the new 
+//                                               operator to create instance of object
+
+function person(name){
+    this.name = name;
+    this.age = "22";
+}
+let obj4 = new person("Prachi Panwar");
+console.log(obj4);
