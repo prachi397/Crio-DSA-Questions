@@ -65,3 +65,11 @@ class Persona{
 }
 let obj7 = new Persona("Prachi");
 console.log(obj7);
+
+//8. Singleton Pattern -> A singleton is an object which can only be intantiated one time, it ensures that
+//                        they don't create multiple instances accidently.
+
+let obj8 = new (function(){
+    this.name = 'prachi';
+})();
+console.log(obj8);
