@@ -20,7 +20,8 @@ function contigiousSequence(n, arr){
         sum = sum + arr[i];
         //compare the max and sum
         max = Math.max(max,sum);
-        //if sum became negative then make it zero
+        // if sum became negative then make it zero because if we carry negative sum then sum will
+        // always reduce 
         if(sum<0){
             sum=0;
         }
