@@ -39,3 +39,18 @@ const pi = 3.14;
 console.log(pi);
 }
 //console.log(pi); //--> it will give reference error
+
+//how to redeclare variables in a switch block without an error
+let counter = 0;
+switch (counter){
+    case 0 :{
+        let name="Prachi";
+        console.log(name);
+        break;
+    }
+    case 1:{
+        let name="Anna";
+        console.log(name)
+        break;
+    }
+}
