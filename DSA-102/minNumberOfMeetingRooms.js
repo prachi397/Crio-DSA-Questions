@@ -27,16 +27,19 @@ function meetingRooms(meetings) {
     start.sort((a,b)=>a-b);
     end.sort((a,b)=>a-b);
     
-    let room=0, endIdx = 0;
+    let room=0, endIdx = 0; //endIdc is to track the earliest meeting that is finished
     //loop through the arr
     for(let i=0;i<meetings.length;i++){
         // if start less than end then add room
         if(start[i]<end[endIdx]){
             room++;
         }else{
+            //free the room
             endIdx++;
         }
     }
     return room;
 }
 console.log(meetingRooms([[0,20],[5,10],[10,15]]));
+
+//here TC - O(nlogn) and SC - O(n)
