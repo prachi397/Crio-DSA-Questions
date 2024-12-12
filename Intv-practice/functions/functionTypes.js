@@ -73,3 +73,13 @@ console.log(add(2, 3));
   const msg = "Hello World!";
   console.log(msg);
 })();
+
+//encode url and decode url
+let uri = "employee Details?name=john&occupation=manager";
+//encode url
+let encoded_uri = encodeURI(uri);
+console.log(encoded_uri);
+
+//decide url
+let decoded_uri = decodeURI(encoded_uri);
+console.log(uri);
