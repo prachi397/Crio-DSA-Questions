@@ -31,3 +31,25 @@ function subarraySumZero(n, arr){
     return "NO"
 }
 console.log(subarraySumZero(4,[4,2,-2,5]))
+
+//otpimal approach -> TC & SC -> O(n)
+function subarraySumZeroOptimal(n, arr){
+    //create a set data structure to store the sum
+    let prefix = new Set();
+    let sum=0;
+    //loop through the array
+    for(let i=0;i<n;i++){
+        //calculate current sum
+        sum+=arr[i];
+        //if we found sumas zero or elese out set already has the sum
+        if(sum===0 || prefix.has(sum)){
+            return "Yes";
+        }
+        //if sum is not present in set then add it
+        else{
+            prefix.add(sum);
+        }
+    }
+    return "No";
+}
+console.log(subarraySumZeroOptimal(4,[4,2,-2,5]))
