@@ -52,3 +52,30 @@ function lengthOfLongestSubstringKDistinct(s, k){
     return maxLength;
 }
 console.log(lengthOfLongestSubstringKDistinct('abacd',3));
+
+//optimal approach
+function lengthOfLongestSubstringKDistinctOptimal(s, k){
+   //create a map of key as character and value as integer
+   let mp = new Map();
+   let left=0,maxLength=0;
+   //loop through the array
+   for(let right=0;right<s.length;right++){
+    //include the current character to the window
+    mp.set(s[right],(mp.get(s[right])||0)+1);
+    //loop untill map size is greater than k
+    while(mp.size>k){
+        //exclude the left character from the window
+        mp.set(s[left],mp.get(s[left]-1));
+        //if frequency of left character is 0 then delete that character from map
+        if(mp.get(s[left])===0){
+            mp.delete(s[left]);
+        }
+        //increament left
+        left++;
+    }
+    //finally get the maximum length;
+    maxLength = Math.max(maxLength,right-left+1);
+   }
+   return maxLength;
+}
+console.log(lengthOfLongestSubstringKDistinctOptimal('Xyyzya',3));
