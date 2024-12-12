@@ -16,3 +16,17 @@ function findAllSubArr(arr){
     return subArrays;
 }
 console.log(findAllSubArr([1,2,3,4,5]))
+
+//find all substrings
+function findAllSubstrings(str){
+    let substrings = [];
+    for(let i=0;i<str.length;i++){
+        let str='';
+        for(let j=i;j<str.length;j++){
+            str += str[j];
+            substrings.push([...str]);
+        }
+    }
+    return substrings;
+}
+console.log(findAllSubArr('abcde'));
