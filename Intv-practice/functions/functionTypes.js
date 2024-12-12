@@ -63,3 +63,13 @@ function add(a, b) {
 }
 console.log(add(2, 3)); 
 console.log(add(2, 3));
+
+//8. IIFE (Immediately Invoked Function Expression) -> IIFE is a javascript function that runs as soon as it is 
+//                                                  defined. The primary reason to use an IIFE is to obtain 
+//                                                  data privacy because any variables declared within the IIFE 
+//                                                  cannot be accessed by the outside world. 
+
+(function(){
+  const msg = "Hello World!";
+  console.log(msg);
+})();
