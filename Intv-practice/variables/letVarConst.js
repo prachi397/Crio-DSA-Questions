@@ -54,3 +54,15 @@ switch (counter){
         break;
     }
 }
+
+//Temporal Dead Zone -> Temporal dead zone is a specific period or area of a block where the is inaccessible
+//                      untill it is initialized with a value. This behaviour occurs when a variable is
+//                      declared using let or const keyword.
+
+function TDZ(){
+    // console.log(counter1); // it will give reference err
+    console.log(counter2); // it will give undefined
+    let counter1 =5;
+    var counter2 = 10;
+}
+TDZ();
