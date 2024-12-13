@@ -93,7 +93,10 @@ TDZ();
 
 //Web Storage -> Web storage is an api that provides a mechanism by which browser can store data as a 
 //               key-value pair locally within the browser in a more in concise manner than using cookies. 
+//               Web storage is more secure and large amount of data can be stored locally without affecting
+//               the performance of the web page. Also the information is never transferred to the server.
 //               web storage provides two mechanism to store data on client side :
+
 //1. Local Stroage -> Local Storage allows us to store data in the browser with no-expireation time. The
 //                    data is stored in local storage remains available even the browser is closed or 
 //                    reopened, or when the user navigates to another pages. The data is domain specific that
@@ -114,3 +117,33 @@ TDZ();
 //                      Data persist only within the current tab or window.
 //                      Data is deleted when the tab is closed.
 //                      Maximum storage capacity is (5-10 MB).
+// check web storage browser support -> We need to check browser support for localStorage and sessionStorage 
+//                                      before using web storage.
+if(typeof Storage !== undefined){
+    //store data in local and session storage
+    console.log("You can store data in local and session storage")
+}else{
+    //No web storage support
+    console.log("Sorry, No web storage support")
+}
+
+//Cookie -> Cookie is a piece of data that is stored in our computer to be accessed by our browser. Cookie
+//          stores data in form of key-value pair.
+// document.cookie = "name=Prachi"
+//          Cookies are used to remember the information about the user profile for example username. It
+//          involves two step:
+//          1. When user visits a web page, the user profile details can be stored in a cookies.
+//          2. When he again visits on the same web page, the cookie will remember the user profile.
+//There are few options avaiable for a cookie :
+//          1. By default, cookie is deleted when the browser is closed, but we can change this behvaiour
+//             by setting the expiry date in UTC format.
+// document.cookie = "name=prachi; expires=Sat, 8 Jun 2019 12:00:00 UTC";
+//          2. By defualt, cookie belongs to the current page, but we can tell the browser what path the
+//             cookie belongs to by setting the path parameter.
+// document.cookie = "username=John; path=/services";
+// Delete a cookie -> We can delete a cookie by setting the expiry data as passed date, in that case we don't
+//                    need to specify cookie value. We need to speicify the path option to ensure that we 
+//                    are deleting the right cookie.
+// document.cookie ="username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
+// Cookies are used for both server as well as client side.
+// Maximum data size is 4 KB.
