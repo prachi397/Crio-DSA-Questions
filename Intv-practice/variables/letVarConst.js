@@ -68,3 +68,7 @@ function TDZ(){
     var counter2 = 10;
 }
 TDZ();
+
+//scope -> scope in javascript is the accessibility of variables, functions, objects in some particular
+//         part of our code during runtime. In other words we can say that scope determines the 
+//         visibilities of variables. functions and objects in a particular part/area of our code.
