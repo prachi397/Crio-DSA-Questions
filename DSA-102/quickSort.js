@@ -38,3 +38,5 @@ function quickSortImp(arr,low,high){
 }
 let arr = [4,6,2,5,7,9,1,3];
 console.log(quickSortImp(arr,0,arr.length - 1));
+
+//Time complexity is O(nlogn) and Space complexity is O(1)
