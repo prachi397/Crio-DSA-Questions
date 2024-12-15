@@ -8,6 +8,8 @@ function insertPivot(arr,low,high){
     //loop untill i<j
     while(i<j){
         //elements smaller than pivot and i should be less than high
+        //here we are doing <=pivot because we considering the scenario when we have 2 same elements 
+        // in the array, so in that case we are putting it into left array
         while(arr[i]<=pivot && i<high){
             i++;
         }
@@ -20,7 +22,7 @@ function insertPivot(arr,low,high){
             [arr[i],arr[j]] = [arr[j],arr[i]];
         }
     }
-    //swap element at low and j
+    //swap element at low and j when i and j cross
     [arr[low],arr[j]] = [arr[j],arr[low]];
     return j;
 }
