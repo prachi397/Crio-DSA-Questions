@@ -46,8 +46,19 @@
 // Explanation --->
 // The element 0 is not found in the array.
 
+//brute force approach - TC- O(n)
+function searchBrute(arr, target) { 
+   for(let i=0;i<arr.length;i++){
+    if(arr[i] === target){
+        return i;
+    }
+   }
+   return -1;
+  }
+  console.log(searchBrute([4, 5, 6, 9, 10, 2, 3], 3));
+
 // first find the pivot element (element which is slope between the rotated arrays, a point from where the
-// array is rotated)
+// array is rotated) - TC-O(logn)
 function findPivot(arr) {
   let left = 0,
     right = arr.length - 1,
@@ -74,7 +85,7 @@ function findPivot(arr) {
   return pivot;
 }
 
-//function to search the target element in sorted array (binary search)
+//function to search the target element in sorted array (binary search) -  TC-O(logn)
 function binarySearch(arr, target, left, right) {
     //loop untill left and right do not cross
   while (left <= right) {
@@ -98,7 +109,8 @@ function binarySearch(arr, target, left, right) {
   return -1;
 }
 
-function search(arr, target) {
+//TC-O(logn)
+function search(arr, target) { 
   //find pivot index by calling findPivot function
   let pivotIdx = findPivot(arr);
   //if the element to be searched is greater than arr[0] then search in first portion of array
@@ -111,3 +123,5 @@ function search(arr, target) {
   }
 }
 console.log(search([4, 5, 6, 9, 10, 2, 3], 9));
+
+// overall TC-O(logn)
