@@ -53,9 +53,11 @@ function reverseWords(s) {
     //iterate from backside of the array
     for(let i=wordArr.length-1;i>=0;i--){
         result += wordArr[i];
+        //adding space after each word
         result+=" ";
     }
-    return result;
+    //remove the extra spaces and return the result 
+    return result.replace(/\s+/g,' ').trim();;
 };
 console.log(reverseWords('the sky is blue'));
 
