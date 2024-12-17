@@ -49,3 +49,39 @@ function bookReading(n, h, a){
     }
 }
 console.log(bookReading(4,8,[3,6,7,11]));
+
+//optimal approach using binary search
+
+//function to check if it is possible to read all books with k speed
+function isPossible(a,h,mid){
+    let speed = 0;
+    //loop through the array and get the speed
+    for(let i=0;i<a.length;i++){
+        speed += Math.ceil(a[i]/mid);
+    }
+    //if the speed is less than h 
+    if(speed<=h){
+        return true;
+    }else{
+        return false;
+    }
+}
+function bookReadingOptimal(n, h, a){
+    //initialize right with maximum possible index
+    let left = 1, right = 1000000000;
+    let ans = right;
+    //loop untill left cross right
+    while(left<=right){
+        //get mid
+        mid = Math.floor((left+right)/2);
+        //check the isPossible function is true
+        if(isPossible(a,h,mid)){
+            ans = mid;
+            right = mid-1;
+        }else{
+            left = mid+1;
+        }
+    }
+    return ans;
+}
+console.log(bookReadingOptimal(4,8,[3,6,7,11]));
