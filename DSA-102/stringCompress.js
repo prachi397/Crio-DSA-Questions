@@ -55,3 +55,42 @@ function compress(chars) {
 }
 console.log(compress(["d", "a", "a", "b", "b", "c", "c", "c"]));
 //here tc and sc both are O(n)
+
+//optimal approach using no extra space according to the problem statement
+function compressOptimal(chars) {
+  let idx1 = 0;
+  let idx2 = 0;
+
+  //loop through the array by idx2 pointer
+  while (idx2 < chars.length) {
+    //get the current value of the character
+    let currentChar = chars[idx2];
+    //set count to 0
+    let count = 0;
+    //loop until idx2 is less than lenght and the element at idx2 is qual to the current character
+    while (idx2 < chars.length && chars[idx2] === currentChar) {
+        //increatement indx2 and count value
+      idx2++;
+      count++;
+    }
+    //se the current character to the array at idx1 index
+    chars[idx1] = currentChar;
+    //increment idx1
+    idx1++;
+    //we do not have to push count if count is 1, so checking if count greater than 1
+    if (count > 1) {
+        //convert the count value into string
+        const countString = count.toString();
+        //iterate through the value because it is given if the group lengths that are 10 or longer 
+        // will be split into multiple characters in chars.
+        for (let i = 0; i < countString.length; i++) {
+            //additing the first digit of count into array and incremenet idx1
+            chars[idx1] = countString[i];
+            idx1++;
+        }
+    }
+  }
+
+  return chars;
+}
+console.log(compressOptimal(["d", "a", "a", "b", "b", "c", "c", "c","c","c"]));
