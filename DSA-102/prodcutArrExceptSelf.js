@@ -11,6 +11,7 @@
 // Input: nums = [-1,1,0,-3,3]
 // Output: [0,0,9,0,0]
 
+//here tc and sc both are O(n)
 function productExceptSelf(nums) {
   let asnwer = [];
   //get the prefix product
@@ -36,3 +37,23 @@ function productExceptSelf(nums) {
   return asnwer;
 }
 console.log(productExceptSelf([-1,1,0,-3,3]));
+
+//lets try to reduce space complexity here
+function productExceptSelfOptimal(nums){
+    let answer = [];
+    let prefix = 1;
+    //get prefix product of each element and store it into answer
+    for(let i=0;i<nums.length;i++){
+        answer[i] = prefix;
+        prefix *= nums[i]
+    }
+    //get the suffix product of each element and multiply it with the prefix product of that, 
+    //particular product
+    let suffix = 1;
+    for(let i=nums.length-1;i>=0;i--){
+        answer[i] *= suffix;
+        suffix *= nums[i];
+    }
+    return answer;
+}
+console.log(productExceptSelfOptimal([1,2,3,4]));
