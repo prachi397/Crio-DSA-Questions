@@ -33,3 +33,19 @@ function removeStars(s){
     return stack.join('');
 }
 console.log(removeStars("leet**cod*e"));
+
+//using two pointer approach - here tc and sc are O(n)
+function removeStarsOptimal(s){
+    let arr = s.split('');
+    let idx = 0;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i] === '*'){
+            idx--;
+        }else{
+        arr[idx] = arr[i];
+        idx++;
+        }
+    }
+    return arr.slice(0,idx).join('');
+}
+console.log(removeStarsOptimal("leet**cod*e"));
