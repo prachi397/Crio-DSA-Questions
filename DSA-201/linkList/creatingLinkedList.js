@@ -57,6 +57,21 @@ class LinkedList{
            curr = curr.next;
         }
     }
+    //reverse the linked list
+    reverseLinkedList(){
+        //take 3 pointers to keep track
+        let trail = null, mid = null, curr= this.head;
+        while(curr !== null){
+            //increment all 3 pointers to one position ahead
+            trail = mid;
+            mid = curr;
+            curr = curr.next;
+            //lastly point the mid to the trail to reverse it
+            mid.next = trail;
+        }
+        // return mid;
+        this.head = mid;  //now our mid became head
+    }
 }
 
 const ll = new LinkedList();
@@ -66,6 +81,8 @@ ll.add(20);
 ll.add(30);
 ll.add(40);
 ll.add(50);
-console.log(ll.print());
+console.log("Linked list is :", ll.print());
 ll.update(20,33);
-console.log(ll.print());
+console.log("Updated Linked list is :", ll.print());
+ll.reverseLinkedList();
+console.log("Reversed Linked list is :", ll.print());
