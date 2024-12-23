@@ -72,6 +72,26 @@ class LinkedList{
         // return mid;
         this.head = mid;  //now our mid became head
     }
+    //make middle node head of the linked list
+    moveMiddleToHead(){
+        //if list is empty or having only one element 
+        if(this.head === null || this.head.next === null){
+            return this.head;
+        }
+        //take slow, one before slow and fast pointer
+        let slow = this.head, fast = this.head, prevSlow = slow;
+        //untill we reached 2nd last element
+        while(fast !== null && fast.next !== null){
+            fast = fast.next.next; //move fast 2 position
+            prevSlow = slow; 
+            slow = slow.next; //move slow to 1 position
+        }
+        //at the end of the while loop slow will be at middle position
+        prevSlow.next = slow.next;
+        slow.next = this.head;
+        //return slow
+        this.head = slow;
+    }
 }
 
 const ll = new LinkedList();
@@ -86,3 +106,5 @@ ll.update(20,33);
 console.log("Updated Linked list is :", ll.print());
 ll.reverseLinkedList();
 console.log("Reversed Linked list is :", ll.print());
+ll.moveMiddleToHead();
+console.log("Linked list after moving middle to head :", ll.print());
