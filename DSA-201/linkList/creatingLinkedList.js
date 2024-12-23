@@ -1,3 +1,5 @@
+//CRUD operations over linked List
+
 //creating a node
 class Node{
     constructor(num){
@@ -12,6 +14,7 @@ class LinkedList{
         //initially head is null that means there is no node in linked list
         this.head = null;
     }
+    //C - linked list creation
     add(val){  //TC- O(n)
         //create new node
         const temp = new Node(val);
@@ -31,6 +34,7 @@ class LinkedList{
             curr.next = temp;
         }
     }
+    //R - read a linked list
     print(){
         let curr = this.head;
         let result = [];
@@ -41,6 +45,18 @@ class LinkedList{
         }
         return result;
     }
+    //U - updating a node
+    update(n,newVal){
+        let curr = this.head;
+        //traverse till the node that has value n
+        while(curr!== null){
+           if(curr.val === n){
+            curr.val = newVal;
+            return;
+           }
+           curr = curr.next;
+        }
+    }
 }
 
 const ll = new LinkedList();
@@ -50,4 +66,6 @@ ll.add(20);
 ll.add(30);
 ll.add(40);
 ll.add(50);
+console.log(ll.print());
+ll.update(20,33);
 console.log(ll.print());
