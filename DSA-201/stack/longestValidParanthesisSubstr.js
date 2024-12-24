@@ -11,6 +11,10 @@
 // Explanation
 // The last 6 characters of the string forms the longest valid substring i.e. "()(())".
 
+//approach is Whenever we see a closing bracket we can calculate the length of that particular 
+// substring which ends at this closing bracket. If the stack is empty, it means there is no opening 
+// bracket for this closing bracket.
+
 function longestValidParentheses(s){
     let stack = [];
     let ans = 0;
