@@ -44,3 +44,24 @@ function maxProfitOptimal(profit){
 }
 console.log(maxProfitOptimal([7,1,5,3,6,4]));
 //here tc is O(n) and sc is O(1)
+
+//one more optimal approach
+function maxProfitOptimalNew(profit){
+    //edge case: if we have less than 2 elements then how we can buy and cell
+    if(profit.length < 2) return 0;
+    let minPrice = profit[0]; //lets say minimum present at 0th index
+    let maxProfit = 0;
+    //iterate over the array
+    for(let i=0;i<profit.length;i++){
+        //if we find the smallest number then it will be min price to buy stock
+        if(profit[i]<minPrice){
+            minPrice = profit[i];
+        }
+        //if any point we found greater number than its the time to sell the stock
+        else{
+            maxProfit = Math.max(maxProfit,profit[i]-minPrice);
+        }
+    }
+    return maxProfit;
+}
+console.log(maxProfitOptimalNew([7,1,5,3,6,4]));
