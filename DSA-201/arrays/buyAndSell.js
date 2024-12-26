@@ -13,6 +13,7 @@
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
+//brute force approach
 function maxProfitbruteForce(profit){
     let maxProfit = 0;
     //iterate form 0 to n
@@ -28,4 +29,18 @@ function maxProfitbruteForce(profit){
     return maxProfit;
 }
 console.log(maxProfitbruteForce([7,1,5,3,6,4]));
-//here tc is O(n*n)
+//here tc is O(n*n) and sc is O(1)
+
+//optimal approach
+function maxProfitOptimal(profit){
+    let minPrice = Number.POSITIVE_INFINITY;
+    let maxProfit = 0;
+    //iterate over the array
+    for(let i=0;i<profit.length;i++){
+        minPrice = Math.min(minPrice,profit[i]);
+        maxProfit = Math.max(maxProfit,profit[i]-minPrice);
+    }
+    return maxProfit;
+}
+console.log(maxProfitOptimal([7,1,5,3,6,4]));
+//here tc is O(n) and sc is O(1)
