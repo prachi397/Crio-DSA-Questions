@@ -16,6 +16,7 @@
 // Other ways such as [1,-2,2,-5,3,-4], [3,1,2,-2,-5,-4], [-2,3,-5,1,-4,2] are incorrect because they do 
 // not satisfy one or more conditions.  
 
+//brute force approach
 function rearrangeArrayBruteForce(nums){
     //get the positive and negative numbers into separate arrays
     let positive = [], negative = [];
@@ -34,3 +35,28 @@ function rearrangeArrayBruteForce(nums){
     return nums;
 }
 console.log(rearrangeArrayBruteForce([3,1,-2,-5,2,-4]));
+
+//here tc will be O(n) and sc will be O(n)
+
+//optimal approach
+function rearrangeArrayOptimal(nums){
+    //start with positive and negative indexes
+    let postiveIdx = 0, negativeIdx = 1;
+    let ans = new Array(nums.length);
+    //iterate over the array
+    for(let i=0;i<nums.length;i++){
+        //if number is negative
+        if(nums[i]<0){
+            //push it at negative index and increase index by 2
+            ans[negativeIdx] = nums[i];
+            negativeIdx += 2;
+        }
+        //if it is positive push it into positive index and increase index by 2
+        else{
+            ans[postiveIdx] = nums[i];
+            postiveIdx += 2;
+        }
+    }
+    return ans;
+}
+console.log(rearrangeArrayOptimal([3,1,-2,-5,2,-4]));
