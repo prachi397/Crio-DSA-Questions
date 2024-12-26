@@ -54,3 +54,36 @@ function frequentWords(words, k) {
     return arr.slice(0,k).map((item)=>item[0]);
 }
 console.log(frequentWords(["car","bus","car","bus"],2));
+
+//lets not use so many built in function
+function frequentWordsNew(words, k) {
+    const mp = new Map();
+    //store the frequency of each word into map
+    for(let i=0;i<words.length;i++){
+        mp.set(words[i],(mp.get(words[i])||0)+1);
+    }
+    const arr = []
+    //convert this map into array to sort it
+   for(const entries of mp){
+    arr.push(entries);
+   }
+    //sort this array (custom sort function)
+    arr.sort((a,b)=>{
+       if(a[1]>b[1]) return -1;
+       else if(b[1]<a[1]) return 1;
+       else{
+        if(a[0]<b[0]) return -1
+        else return 1;
+       }
+    }
+    );
+    const result = [];
+    //lastly push the k elements into result
+    for(let i=0;i<k;i++){
+        result.push(arr[i][0]);
+    }
+    return result;
+}
+console.log(frequentWordsNew(["car","bus","car","bus"],2));
+
+//here tc is O(nlogn) and sc is O(n)
