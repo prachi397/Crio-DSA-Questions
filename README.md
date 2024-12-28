@@ -69,12 +69,18 @@ Common Interview Questions
    Inner function stores the reference of its outer parent function that's why it can capture the variables and parameters of its outer function within its lexical environment.
 
   
-  function outer(a){
-    function inner(b){
-        return a+b;
-    }
-    return inner;
-}
-let innerFunc = outer(10);
-console.log(innerFunc(5));   //15
+                        function outer(a){
+                            function inner(b){
+                                 return a+b;
+                            }
+                            return inner;
+                          }
+                         let innerFunc = outer(10);
+                     console.log(innerFunc(5));   //15
+                     
 
+clousers can be used for many ways in javascript :
+-> Encapsulation
+-> function currying
+-> callbacks
+-> memoization
