@@ -8,16 +8,18 @@ Common Interview Questions
  in terms of their scope, their hoisting behaviour and their redeclaration or reassignmnet.
   -> scope : variable defined using var keyword has function scope that means they can be accessed anywhere in 
             the function, they are defined.
-            for example : function scopeExample(){
+            for example : 
+                            function scopeExample(){
                                 var a = 5;
                                 console.log(a);
-                         }
+                            }
             whereas variables which are defined using let or const keyword are block scope that means they can
             be accessed within the block {} only, we can not access then outside the block.
-            for example : {
+            for example : 
+                             {
                                 let a = 5;
                                 console.log(a);
-                         }
+                             }
  -> Hoisting : variable declared using var are hoisted to the top of their containing scope and initialize with
               undefined.
               whereas the let and const variables are also hoisted but remains in temporal dead zone from the start of the block untill the variable is declared which gives reference error we try to access 
@@ -27,7 +29,8 @@ Common Interview Questions
  -> Redeclaration/Reassignment : var variables can be redeclare and reassign whereas the let variable can only 
                                  be reassigned (that means we can overrirde their value) but we can not redeclare
                                  let variables and the const variable can not be redeclare or reassign, that means once we assign a value to the const variable then we can not change its value.
-                                 for example : var a = 5;
+                                 for example : 
+                                               var a = 5;
                                                console.log(a);  //5
                                                var a = 3;
                                                console.log(a);  //3
