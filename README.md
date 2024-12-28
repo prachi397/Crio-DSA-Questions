@@ -24,6 +24,7 @@ Common Interview Questions
                                 console.log(a);
                              }
    
+
  -> Hoisting : variable declared using var are hoisted to the top of their containing scope and initialize with
               undefined.
               whereas the let and const variables are also hoisted but remains in temporal dead zone from the start of the block untill the variable is declared which gives reference error we try to access 
@@ -32,11 +33,14 @@ Common Interview Questions
               
                              console.log(a);  //return undefined
                              var a;
+
                              
  -> Redeclaration/Reassignment : var variables can be redeclare and reassign whereas the let variable can only 
                                  be reassigned (that means we can overrirde their value) but we can not redeclare
                                  let variables and the const variable can not be redeclare or reassign, that means once we assign a value to the const variable then we can not change its value.
                                  for example : 
+
+
                                              //var variable
                                                var a = 5;
                                                console.log(a);  //5
@@ -57,3 +61,20 @@ Common Interview Questions
                                                console.log(c); //10
                                                c = 15; //error
                                                const c = 20  //error
+
+
+2. What are closures, and how are they used in JavaScript?
+   Clouser is the inner function that can access the variables and parameters of its outer parent function,
+   even after the outer function has finished its execution. Inner function has the ability to access and manipulate its outer parent function's variables.
+   Inner function stores the reference of its outer parent function that's why it can capture the variables and parameters of its outer function within its lexical environment.
+
+  
+  function outer(a){
+    function inner(b){
+        return a+b;
+    }
+    return inner;
+}
+let innerFunc = outer(10);
+console.log(innerFunc(5));   //15
+
