@@ -72,3 +72,19 @@ function flatten(arr){
     return newArr;
 }
 console.log(flatten(arr));
+
+//Find the first non-repeating character in a string
+let str = "aabbccdee";
+function findNonRepeatingChar(){
+    let mp = new Map();
+    for(let i=0;i<str.length;i++){
+        mp.set(str[i],(mp.get(str[i])||0)+1);
+    }
+    for(const [key,value] of mp){
+        if(value === 1){
+            return key;
+        }
+    }
+    return null;
+}
+console.log(findNonRepeatingChar(str));
