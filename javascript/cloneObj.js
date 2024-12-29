@@ -54,3 +54,21 @@ person4.profession = function greet(){
 person4.profession();
 console.log("deep copy:",person4);
 console.log(obj);
+
+//flaten an array without using inbuilt method
+let arr = [[1,2],[3,4,[5,6]],[7,8,9]];
+function flatten(arr){
+    let newArr = [];
+    function innerFlat(arr){
+        arr.forEach(ele => {
+            if(Array.isArray(ele)){
+                innerFlat(ele);
+            }else{
+                newArr.push(ele);
+            }
+        });
+    }
+    innerFlat(arr);
+    return newArr;
+}
+console.log(flatten(arr));
