@@ -88,3 +88,27 @@ function findNonRepeatingChar(){
     return null;
 }
 console.log(findNonRepeatingChar(str));
+
+//clouser
+function Outer(a){
+    function inner(b){
+        return a+b;
+    }
+    return inner;
+}
+let funcCall = Outer(5);
+console.log(funcCall(10));
+
+//clouser with encapsulation
+function bankAccount(accNo, name, balance){
+    function showDetails(){
+        console.log(`account number : ${accNo} name : ${name} and balance : ${balance}`);
+    }
+    function deposit(amount){
+        balance += amount;
+        showDetails();
+    }
+    return deposit;
+}
+let accData = bankAccount(123,"Prachi", 500);
+accData(50);
