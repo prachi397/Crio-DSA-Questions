@@ -148,3 +148,11 @@ function sumOfThreeElements(...elements) {
 sumOfThreeElements(4, 5, 6,8)
   .then((result) => console.log(result))
   .catch((err) => console.log(err));
+
+//conditionals
+let age = 22;
+if(age>18){
+  console.log("Hi inside if");
+}else{
+  console.log("Hi inside else");
+}
