@@ -41,3 +41,15 @@ const askMom = function () {
     .catch((err) => console.log(err));
 };
 askMom();
+
+//using async await
+async function askMomAgain(){
+    try{
+        const phone = await willGetNewPhone();
+        const message = await showOff(phone);
+        console.log(message+` from async function`);
+    }catch(err){
+        console.log(err);
+    }
+}
+askMomAgain();
