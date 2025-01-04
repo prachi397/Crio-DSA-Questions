@@ -63,11 +63,3 @@ let promise3 = new Promise((resolve,reject)=>{
 Promise.all([promise1,promise2,promise3]).then((values)=>{
     console.log(values);
 })
-
-let age; 
-age = 25; 
-let name = "John";
-const PI = 3.14;
-console.log("My age is " + age);
-console.log("My name is " + name);
-console.log("The value of PI is " + PI);
