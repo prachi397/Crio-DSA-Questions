@@ -35,13 +35,12 @@ function findSecondLargestBetter(arr){
     let largest = -1, secondLargest = -1;
     //iterate over the array
     for(let i=0;i<arr.length;i++){
-        //check if element is greater than largest
-        if(arr[i]>=largest){
-            largest=arr[i];
+        if(arr[i]>largest){
+            secondLargest = largest;
+            largest = arr[i];
         }
-        //if not check if it is greater than second largest
-        else if(arr[i]>=secondLargest){
-            secondLargest=arr[i];
+        else if(arr[i]>secondLargest && arr[i]<largest){
+            secondLargest = arr[i]
         }
     }
     return secondLargest;
