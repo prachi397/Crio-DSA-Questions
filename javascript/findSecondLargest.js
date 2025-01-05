@@ -14,7 +14,7 @@
 // Output: -1
 // Explanation: The largest element of the array is 10 there is no second largest element.
 
-//brute force approach
+//brute force approach -> tc is O(nlogn) and sc is O(1)
 function findSecondLargestBrute(arr){
     //sort the array in ascendent order
     arr.sort((a,b)=>a-b);
@@ -29,3 +29,21 @@ function findSecondLargestBrute(arr){
     return -1;
 }
 console.log(findSecondLargestBrute([10, 5, 10]));
+
+//optimal approach -> here tc-O(n) and sc- O(1)
+function findSecondLargestBetter(arr){
+    let largest = -1, secondLargest = -1;
+    //iterate over the array
+    for(let i=0;i<arr.length;i++){
+        //check if element is greater than largest
+        if(arr[i]>=largest){
+            largest=arr[i];
+        }
+        //if not check if it is greater than second largest
+        else if(arr[i]>=secondLargest){
+            secondLargest=arr[i];
+        }
+    }
+    return secondLargest;
+}
+console.log(findSecondLargestBetter([12, 35, 1, 10, 34, 1]));
