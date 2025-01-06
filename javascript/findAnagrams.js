@@ -25,17 +25,22 @@
 // Explanation -->
 // The anagrams of "abcd" can be seen as “bacd” at index 0, “abcd” at index 5 and “bcda” at index 6.
 
+//function to compare two maps
 function compareMaps(mp1, mp2) {
+    //if size of both maps is not equal then return false
   if (mp1.size !== mp2.size) {
     return false;
   }
+  //iterate through any one map
   for (const [key, val] of mp1) {
+    //check if the frequency of characters of mp1 is euqal to the frequency of characters of mp2
     if (mp2.get(key) !== val) {
       return false;
     }
   }
   return true;
 }
+
 function findAllAnagramsInAString(s, p) {
   let ans = [];
   //get the frequency of each character of p
@@ -45,14 +50,21 @@ function findAllAnagramsInAString(s, p) {
   }
   //check in the entire string s if we have same set of characters or not
   let mp2 = new Map();
+  //sliding window approach
   let i = 0,
     j = 0;
+    //here we are moving j only
   while (j < s.length) {
+    //get the frequency of characters of string s
     mp2.set(s[j], (mp2.get(s[j]) || 0) + 1);
+    //if we reach the same size as p
     if (j - i + 1 === p.length) {
+        //then compare both the maps
       if (compareMaps(mp1, mp2)) {
+        //push the index i if true
         ans.push(i);
       }
+      //shrink the window
       if (mp2.get(s[i]) === 1) {
         mp2.delete(s[i]);
       } else {
@@ -60,8 +72,11 @@ function findAllAnagramsInAString(s, p) {
       }
       i++;
     }
+    //expand the window increase j pointer
     j++;
   }
   return ans;
 }
 console.log(findAllAnagramsInAString("bacdgabcda", "abcd"));
+
+//here tc is O(n) and sc is O(n);
