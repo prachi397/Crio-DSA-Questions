@@ -78,5 +78,48 @@ function findAllAnagramsInAString(s, p) {
   return ans;
 }
 console.log(findAllAnagramsInAString("bacdgabcda", "abcd"));
-
 //here tc is O(n) and sc is O(n);
+
+
+//another approach
+function findAllAnagramsInAStringNew(s,p){
+  let mp1 = new Map();
+  let ans = [];
+  //get the frequency of each character of string p
+  for (let i = 0; i < p.length; i++) {
+    mp1.set(p[i], (mp1.get(p[i]) || 0) + 1);
+  }
+  
+  let mp2 = new Map();
+  //window size will be always length of p
+  let k = p.length;
+  //iterate throught the length of p and get frequency of first windwo
+  for (let i = 0; i < k; i++) {
+    mp2.set(s[i], (mp2.get(s[i]) || 0) + 1);
+  }
+  //compare the first window and if true then push the 0th index
+  if(compareMaps(mp1,mp2)){
+    ans.push(0);
+  }
+  //iterate from k to end of the string s
+  for(let i=k;i<s.length;i++){
+    //set the values in map2
+    mp2.set(s[i], (mp2.get(s[i]) || 0) + 1);
+    let leftChar = s[i-k];  //get the left most character to shirnk the window
+
+    //if the frequency of leftchar is 1 then delete it
+    if(mp2.get(leftChar) === 1){
+      mp2.delete(leftChar);
+    }
+    //otherwise reduce its frequency
+    else{
+      mp2.set(leftChar,mp2.get(leftChar)-1);
+    }
+    //compare the window with map1 and if true then push the ith index
+    if(compareMaps(mp1,mp2)){
+      ans.push(i-k+1);
+    }
+  }
+  return ans;
+}
+console.log(findAllAnagramsInAStringNew("bacdgabcda", "abcd"));
