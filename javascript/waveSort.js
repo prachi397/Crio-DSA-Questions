@@ -11,6 +11,17 @@
 // Output: [2, 1, 4, 3, 5]
 // Explanation: Array elements after sorting it in the waveform are 2, 1, 4, 3, 5.
 
+//brute force approach --> here tc is O(nlogn)
+function waveSortBrute(arr){
+    //sort the array in ascending order
+    arr.sort((a,b)=>a-b);
+    //swap the adjacent elements (length-1 be cause at the last index we don't have adjacent element to swap)
+    for(let i=0;i<arr.length-1;i+=2){
+        swap(arr,i,i+1);
+    }
+    return arr;
+}
+console.log(waveSortBrute([1, 2, 3, 4, 5]));
 //optimal approach
 function swap(arr,a,b){
     let temp = arr[a];
