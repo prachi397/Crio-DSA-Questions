@@ -34,3 +34,17 @@ function rotateArrByD(arr,d){
 }
 console.log(rotateArrByD([1, 2, 3, 4, 5],2));
 //here tc is O(n) and sc is O(1)
+
+//rotate array right by d place
+function rotateRight(arr,d){
+    d = d%arr.length;
+    if(d===0) return arr;
+    //reverse the entire array
+    reverse(arr,0,arr.length-1);
+    //rever the first d elements
+    reverse(arr,0,d-1);
+    //reverse from d to n
+    reverse(arr,d,arr.length-1);
+    return arr;
+}
+console.log(rotateRight([1,2,3,4,5,6,7],3))
