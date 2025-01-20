@@ -14,3 +14,10 @@
 //              execution
 //           -> event loop continue this process, ensuring that the callstack should be empty before taking
 //              the next function from the callback queue to be executed.
+
+console.log("hello 1");
+setTimeout(()=>{
+    console.log("hello 2");
+    console.log("hello 3")
+},1000);
+console.log("hello 4");
